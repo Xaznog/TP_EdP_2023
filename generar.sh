@@ -1,13 +1,16 @@
 #!/bin/bash
 
-# Genera imágenes utilizando algún servicios web. Se debe poder indicar por argumento cuantas imagenes generar y se deben asignar nombres de archivo al azar de una lista de nombres de personas.
+# Genera imágenes utilizando algún servicios web.
 # Tener en cuenta que al descargar de una página conviene usar un sleep entre descarga y descarga para no saturar el servicio y evitar problemas.
+# Se debe poder indicar por argumento cuantas imágenes generar y se deben asignar nombres de archivo al azar de una lista de nombres de personas.
 # Luego se deben comprimir las imágenes, y generar un archivo con su suma de verificación.
+
 
 ARCHIVO_NOMBRES="/home/tuia/EdP/TP/dataset.csv"
 RUTA_IMAGENES="/home/tuia/EdP/TP/imagenes_descargadas"
 RUTA_TRABAJO="/home/tuia/EdP/TP"
-URL_IMAGENES="https://source.unsplash.com/random/900%C3%97700/?person"
+#URL_IMAGENES="https://source.unsplash.com/random/900%C3%97700/?person"
+URL_IMAGENES="https://thispersondoesnotexist.com"
 
 chmod +rwx $RUTA_TRABAJO
 cd $RUTA_TRABAJO
@@ -51,7 +54,8 @@ then
 					do
 						# Verificamos que no hayamos creado ya un archivo con ese nombre
 						NUM_RANDOM=$(($RANDOM%$CANT_NOMBRES))
-						NOMBRE=$(head -$NUM_RANDOM $ARCHIVO_NOMBRES | tail -1 | tr -d '\r')	#Toma la línea $NUM_RANDOM de la lista de nombres
+						NOMBRE=$(head -$NUM_RANDOM $ARCHIVO_NOMBRES | tail -1 | cut -d ',' -f 1)	# El comando cut extrae porciones de texto, -d te permite elegir un delimitador, -f especifica el campo que querés extraer
+						# NOMBRE=$(head -$NUM_RANDOM $ARCHIVO_NOMBRES | tail -1 | tr -d '\r')	# Toma la línea $NUM_RANDOM de la lista de nombres
 						CANT_USO_NOMBRE=$(cat nombres_usados.txt | egrep "$NOMBRE" | wc -l)
 						# Si el nombre no se usó aún, salimos del while
 						if [ $CANT_USO_NOMBRE -eq 0 ]
