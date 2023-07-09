@@ -4,7 +4,7 @@
 # Solamente deben procesarse aquellas imágenes que tengan nombres de personas válidos.
 # Entiéndase por nombres de personas válidos a cualquier combinación de palabras que empiecen con un letra mayúscula y sigan por minúsculas.
 
-RUTA_IMAGENES="/home/tuia/EdP/TP/imagenes_descargadas"
+RUTA_IMAGENES="/home/scripts/imagenes_descargadas"
 REG_EXP_VAL="^[A-ZÁÉÍÓÚÑÀÈÌÒÙ][a-záéíóúñàèìòù]+(\s[A-ZÁÉÍÓÚÑÀÈÌÒÙ][a-záéíóúñàèìòù]+)*\.(.+)?$"
 
 chmod +rwx $RUTA_IMAGENES
