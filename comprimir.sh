@@ -10,8 +10,8 @@
 #RUTA_IMAGENES_PROC="/home/tuia/EdP/TP/imagenes_descargadas/nuevas_imagenes"
 REG_EXP_VAL_FIN_A="^[A-ZÁÉÍÓÚÑÀÈÌÒÙ][a-záéíóúñàèìòù]+a(\s[A-ZÁÉÍÓÚÑÀÈÌÒÙ][a-záéíóúñàèìòù]+)*\.(.+)?$"
 REG_EXP_VAL="^[A-ZÁÉÍÓÚÑÀÈÌÒÙ][a-záéíóúñàèìòù]+(\s[A-ZÁÉÍÓÚÑàèìòù][a-záéíóúñàèìòù]+)*\.(.+)?$"
-RUTA_COMPRIMIDO="/home/tuia/EdP/TP"
-RUTA_IMAGENES="/home/tuia/EdP/TP/imagenes_descargadas"
+RUTA_COMPRIMIDO="/home/salida/"
+RUTA_IMAGENES="/home/scripts/imagenes_descargadas"
 
 #chmod +rwx $RUTA_IMAGENES_PROC
 
