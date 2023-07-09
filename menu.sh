@@ -2,8 +2,9 @@
 
 # Debe incluirse un menú para elegir cada una de las opciones anteriores.
 
-RUTA_COMPRIMIDO="/home/tuia/EdP/TP/imagenes_comprimidas.zip"
-RUTA_CHECKSUM="/home/tuia/EdP/TP/checksum_md5.txt"
+RUTA_COMPRIMIDO="/home/scripts/imagenes_comprimidas.zip"
+RUTA_CHECKSUM="/home/scripts/checksum_md5.txt"
+RUTA_TRABAJO="/home/scripts"
 
 echo "Bienvenido al TP de Entorno de Programación!"
 
@@ -23,16 +24,16 @@ do
 		1)
 			echo -n "Ingrese la cantidad de imágenes que desea generar: "
 			read CANT_IMAGENES
-			./generar.sh $CANT_IMAGENES
+			$RUTA_TRABAJO/generar.sh $CANT_IMAGENES
 			;;
 		2)
-			./descomprimir.sh $RUTA_COMPRIMIDO $RUTA_CHECKSUM
+			$RUTA_TRABAJO/descomprimir.sh $RUTA_COMPRIMIDO $RUTA_CHECKSUM
 			;;
 		3)
-			./procesar.sh
+			$RUTA_TRABAJO/procesar.sh
 			;;
 		4)
-			./comprimir.sh
+			$RUTA_TRABAJO/comprimir.sh
 			;;
 		5)
 			clear
