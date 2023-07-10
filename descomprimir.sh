@@ -3,7 +3,7 @@
 # Se debe poder indicar por argumento dos archivos (uno con las imágenes comprimidas y otro con una suma de verificación).
 # Si ocurrió algún error se debe informar al usuario de lo contrario se procede a descomprimir.
 
-RUTA_TRABAJO="/home/tuia/EdP/TP"
+RUTA_TRABAJO="/home/scripts/"
 #RUTA_COMPRIMIDO="/home/tuia/EdP/TP/imagenes_comprimidas.zip"
 #RUTA_CHECKSUM="/home/tuia/EdP/TP/checksum_md5.txt"
 ARCHIVO_COMPRIMIDO=$1
