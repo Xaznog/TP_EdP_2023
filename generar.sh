@@ -6,9 +6,9 @@
 # Luego se deben comprimir las imágenes, y generar un archivo con su suma de verificación.
 
 
-ARCHIVO_NOMBRES="/home/tuia/EdP/TP/dataset.csv"
-RUTA_IMAGENES="/home/tuia/EdP/TP/imagenes_descargadas"
-RUTA_TRABAJO="/home/tuia/EdP/TP"
+ARCHIVO_NOMBRES="/home/scripts/dataset.csv"
+RUTA_IMAGENES="/home/scripts/imagenes_descargadas"
+RUTA_TRABAJO="/home/scripts/"
 #URL_IMAGENES="https://source.unsplash.com/random/900%C3%97700/?person"
 URL_IMAGENES="https://thispersondoesnotexist.com"
 
