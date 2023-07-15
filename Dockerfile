@@ -14,7 +14,7 @@ RUN apt-get install -y wget
 RUN apt-get install -y ucommon-utils
 # Limpia la caché 
 RUN apt-get clean
-# Limpia
+# Limpia la información de paquetes descargados
 RUN rm -rf /var/lib/apt/lists/*
 # Crea carpeta que contendrá los scripts
 RUN mkdir /home/scripts
