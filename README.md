@@ -1,7 +1,7 @@
 # Trabajo Práctico Final - Entorno de Programación
 
 ## Introducción
-En este repositorio, se encuentran los archivos que componen el Trabajo Práctico Final para la materia Entorno de Programación de la Tecnicatura en Inteligencia Artificial. Los integrante del grupo de estudiantes que realizó este trabajo fueron:
+En este repositorio, se encuentran los archivos que componen el Trabajo Práctico Final para la materia Entorno de Programación de la Tecnicatura en Inteligencia Artificial. Los integrantes del grupo de estudiantes que realizó este trabajo fueron:
 
 | Estudiante | Legajo |
 | ----- | --- |
@@ -110,7 +110,7 @@ Para ejecutar esta opción, teniendo el menú en pantalla, el usuario deberá in
 
 ![image](https://github.com/Xaznog/TP_EdP_2023/assets/101712284/7bdff22d-82f3-4d50-b671-b06fe5c02b27)
 
-El usuario debería verse de regreso a la terminal de Shell de su PC:
+El usuario deberá verse de regreso a la terminal de Shell de su PC:
 
 ![image](https://github.com/Xaznog/TP_EdP_2023/assets/101712284/9cce156c-36dc-4096-a858-5eed23c24eb8)
 
