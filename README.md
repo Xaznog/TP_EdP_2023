@@ -142,4 +142,4 @@ docker rmi img_tp_edp_tuia
 
 Ejemplo:
 
-![image](https://github.com/Xaznog/TP_EdP_2023/assets/101712284/aab26338-ef6a-4e3d-9793-45ff1ceb5788)
+![image](https://github.com/Xaznog/TP_EdP_2023/assets/101712284/c6d8c483-bd6f-4c69-85c4-e1413fc9c4cd)
