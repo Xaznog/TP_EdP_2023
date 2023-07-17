@@ -2,17 +2,8 @@
 
 # Debe incluirse un menú para elegir cada una de las opciones anteriores.
 
-# Función para validar instalación de paquetes
-# Como primer argumento recibirá el nombre de una función del paquete y como segundo argumento recibirá al nombre del paquete
-function validar_instalacion {
-	EXISTE_PAQUETE=$(whereis $1)
-	if [[ $EXISTE_PAQUETE == "$1:" ]]
-	then
-		echo "ERROR: El paquete $2 no está instalado. Se interrumpirá la ejecución del programa."
-		sleep 5
-		exit 1
-	fi
-}
+# Inclusión de script con funciones
+source /home/scripts/funciones.sh
 
 # Creación de variables
 RUTA_COMPRIMIDO="/home/scripts/imagenes_comprimidas.zip"	# Ruta donde se almacena el archivo comprimido con las imágenes

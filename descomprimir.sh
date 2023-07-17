@@ -3,6 +3,9 @@
 # Se debe poder indicar por argumento dos archivos (uno con las imágenes comprimidas y otro con una suma de verificación).
 # Si ocurrió algún error se debe informar al usuario de lo contrario se procede a descomprimir.
 
+# Inclusión de script con funciones
+source /home/scripts/funciones.sh
+
 # Creación de variables
 RUTA_TRABAJO="/home/scripts/"		# Ruta de trabajo
 ARCHIVO_COMPRIMIDO=$1				# Ruta de archivo comprimido con las imágenes generadas

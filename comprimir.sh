@@ -7,6 +7,9 @@
 # – por último, generar un archivo comprimido que incluya los archivos generados en los items anteriores y todas las imágenes.
 # El archivo comprimido debe poder accederse desde fuera del contenedor.
 
+# Inclusión de script con funciones
+source /home/scripts/funciones.sh
+
 # Creación de variables
 REG_EXP_VAL_FIN_A="^[A-ZÁÉÍÓÚÑÀÈÌÒÙ][a-záéíóúñàèìòù]+a(\s[A-ZÁÉÍÓÚÑÀÈÌÒÙ][a-záéíóúñàèìòù]+)*\.(.+)?$"	# Expresión regular de nombres válidos que terminan en "a"
 REG_EXP_VAL="^[A-ZÁÉÍÓÚÑÀÈÌÒÙ][a-záéíóúñàèìòù]+(\s[A-ZÁÉÍÓÚÑàèìòù][a-záéíóúñàèìòù]+)*\.(.+)?$"			# Expresión regular de nombres válidos
@@ -19,18 +22,9 @@ then
 	cd $RUTA_IMAGENES
 
 	# Limpieza de archivos de ejecuciones anteriores
-	if [ -e lista_nombres_imagenes.txt ]
-	then
-		rm lista_nombres_imagenes.txt
-	fi
-	if [ -e lista_nombres_val.txt ]
-	then
-		rm lista_nombres_val.txt
-	fi
-	if [ -e cant_nombres_val_fin_a.txt ]
-	then
-		rm cant_nombres_val_fin_a.txt
-	fi
+	elimina_archivo lista_nombres_imagenes.txt
+	elimina_archivo lista_nombres_val.txt
+	elimina_archivo cant_nombres_val_fin_a.txt
 
 	if [ "$(ls -A $RUTA_IMAGENES)" ]	# VALIDACIÓN: Verifica si la carpeta tiene contenido. -A no lista . y ..
 	then

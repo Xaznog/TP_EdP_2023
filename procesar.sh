@@ -4,6 +4,9 @@
 # Solamente deben procesarse aquellas imágenes que tengan nombres de personas válidos.
 # Entiéndase por nombres de personas válidos a cualquier combinación de palabras que empiecen con un letra mayúscula y sigan por minúsculas.
 
+# Inclusión de script con funciones
+source /home/scripts/funciones.sh
+
 # Creación de variables
 RUTA_IMAGENES="/home/scripts/imagenes_descargadas"			# Ruta de las imágenes generadas
 REG_EXP_VAL="^[A-ZÁÉÍÓÚÑÀÈÌÒÙ][a-záéíóúñàèìòù]+(\s[A-ZÁÉÍÓÚÑÀÈÌÒÙ][a-záéíóúñàèìòù]+)*\.(.+)?$"	# Expresión regular de nombres válidos
@@ -15,10 +18,7 @@ then
 	cd $RUTA_IMAGENES
 
 	# Limpieza de archivos de ejecuciones anteriores
-	if [ -e lista_nombres.txt ]
-	then
-		rm lista_nombres.txt
-	fi
+	elimina_archivo lista_nombres.txt
 
 	ls | egrep $REG_EXP_VAL > lista_nombres.txt		# Crea un archivo con todos los nombres válidos
 	CANT_NOMBRES=$(ls | egrep $REG_EXP_VAL | wc -l)	# Cuenta la cantidad de líneas (nombres válidos)

@@ -5,6 +5,9 @@
 # Se debe poder indicar por argumento cuantas imágenes generar y se deben asignar nombres de archivo al azar de una lista de nombres de personas.
 # Luego se deben comprimir las imágenes, y generar un archivo con su suma de verificación.
 
+# Inclusión de script con funciones
+source /home/scripts/funciones.sh
+
 # Creación de variables
 ARCHIVO_NOMBRES="/home/scripts/dataset.csv"				# Ruta del dataset
 RUTA_IMAGENES="/home/scripts/imagenes_descargadas"		# Ruta de la carpeta con las imágenes generadas
@@ -17,25 +20,10 @@ chmod +rwx $RUTA_TRABAJO
 cd $RUTA_TRABAJO
 
 # Limpieza de archivos de ejecuciones anteriores
-if [ -e $RUTA_IMAGENES ]
-then
-	rm -r $RUTA_IMAGENES
-fi
-
-if [ -e nombres_usados.txt ]
-then
-	rm nombres_usados.txt
-fi
-
-if [ -e imagenes_comprimidas.zip ]
-then
-	rm imagenes_comprimidas.zip
-fi
-
-if [ -e checksum_md5.txt ]
-then
-	rm checksum_md5.txt
-fi
+elimina_archivo $RUTA_IMAGENES
+elimina_archivo nombres_usados.txt
+elimina_archivo imagenes_comprimidas.zip
+elimina_archivo checksum_md5.txt
 
 if [ -e $ARCHIVO_NOMBRES ]		# VALIDACIÓN: Verifica existencia de dataset
 then
@@ -113,7 +101,7 @@ then
 						continue
 					else
 						echo -e "\e[31mERROR: Hubo problemas en la generación de imágenes, se aborta la operación.\e[0m"
-						echo "Compruebe la conexión a internet y vuelva a intentarlo."
+						echo -e "\e[31mCompruebe la conexión a internet y vuelva a intentarlo.\e[0m"
 						rm -r $RUTA_IMAGENES
 						rm nombres_usados.txt
 						exit 5
