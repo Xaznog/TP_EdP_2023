@@ -15,6 +15,9 @@ ping -c 3 "www.google.com" > /dev/null 2>&1
 # Si hay conexión a internet se procede a la creación de la imagen y posterior ejecución del contenedor
 if [ $? -eq 0 ]; then
 
+    mkdir output
+    chmod 764 output
+
     # Construcción de la imagen a partir del Dockerfile
     docker build --tag img_tp_edp_tuia:1.0 .
 

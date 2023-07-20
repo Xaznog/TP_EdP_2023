@@ -26,44 +26,52 @@ then
 	elimina_archivo lista_nombres_val.txt
 	elimina_archivo cant_nombres_val_fin_a.txt
 
-	if [ "$(ls -A $RUTA_IMAGENES)" ]	# VALIDACIÓN: Verifica si la carpeta tiene contenido. -A no lista . y ..
+	if [ -e procesado_ok.txt ] # VALIDACION: El script "procesar.sh" fue ejecutado con anterioridad.
 	then
-		echo "Creando listas con detalles de nombres..."
-		LISTA_NOMBRES=$(ls)
-		echo -e "Los nombres de todas las imágenes son:\n$LISTA_NOMBRES" > lista_nombres_imagenes.txt
-		# El -e habilita el uso de escapes con \
-		echo "Los nombres válidos son:" > lista_nombres_val.txt
+		rm procesado_ok.txt
+		
+		if [ "$(ls -A $RUTA_IMAGENES)" ]	# VALIDACIÓN: Verifica si la carpeta tiene contenido. -A no lista . y ..
+		then
+			echo "Creando listas con detalles de nombres..."
+			LISTA_NOMBRES=$(ls)
+			echo -e "Los nombres de todas las imágenes son:\n$LISTA_NOMBRES" > lista_nombres_imagenes.txt
+			# El -e habilita el uso de escapes con \
+			echo "Los nombres válidos son:" > lista_nombres_val.txt
 
-		for ARCHIVO in $RUTA_IMAGENES/*		# Itera sobre los archivos contenidos en el directorio
-		do
-        	AUX_ARCHIVO=$(basename "$ARCHIVO")	# Se alamcena únicamente el nombre de archivo, sin la ruta
-			if [[ $AUX_ARCHIVO =~ $REG_EXP_VAL ]]	# Se compara el nombre del archivo con la expresión regular de nombre válido
-			then
-        		echo ${AUX_ARCHIVO%.*} >> lista_nombres_val.txt
-				# ${} se usa para strings, el "%" elimina patrones, el "." es un punto y el "*" es cualquier cosa
-				# Con esto, se logra eliminar todo lo que está a la derecha del punto (la extensión del archivo y el salto de línea)
-            fi
-        done
+			for ARCHIVO in $RUTA_IMAGENES/*		# Itera sobre los archivos contenidos en el directorio
+			do
+				AUX_ARCHIVO=$(basename "$ARCHIVO")	# Se alamcena únicamente el nombre de archivo, sin la ruta
+				if [[ $AUX_ARCHIVO =~ $REG_EXP_VAL ]]	# Se compara el nombre del archivo con la expresión regular de nombre válido
+				then
+					echo ${AUX_ARCHIVO%.*} >> lista_nombres_val.txt
+					# ${} se usa para strings, el "%" elimina patrones, el "." es un punto y el "*" es cualquier cosa
+					# Con esto, se logra eliminar todo lo que está a la derecha del punto (la extensión del archivo y el salto de línea)
+				fi
+			done
 
-		CANT_VAL_FIN_A=$(ls | egrep $REG_EXP_VAL_FIN_A | wc -l)	# Cuenta la cantidad de nombres válidos que terminen en "a"
-		echo "La cantidad de nombres válidos que terminan en 'a' es de: $CANT_VAL_FIN_A" > cant_nombres_val_fin_a.txt
+			CANT_VAL_FIN_A=$(ls | egrep $REG_EXP_VAL_FIN_A | wc -l)	# Cuenta la cantidad de nombres válidos que terminen en "a"
+			echo "La cantidad de nombres válidos que terminan en 'a' es de: $CANT_VAL_FIN_A" > cant_nombres_val_fin_a.txt
 
-		# Compresión de imágenes
-		echo "Comprimiendo imágenes..."
-		zip -r $RUTA_COMPRIMIDO/imagenes_comprimidas.zip ./
-		# -r hace una compresión recursiva del contenido del directorio
+			# Compresión de imágenes
+			echo "Comprimiendo imágenes..."
+			zip -r $RUTA_COMPRIMIDO/imagenes_comprimidas.zip ./
+			# -r hace una compresión recursiva del contenido del directorio
+			
+			# Eliminación de directorio con imágenes sin comprimir. En este punto ya no es necesario
+			rm -r $RUTA_IMAGENES
 
-		# Eliminación de directorio con imágenes sin comprimir. En este punto ya no es necesario
-		rm -r $RUTA_IMAGENES
-
-		echo -e "\e[32mFinalizada la compresión de imágenes.\e[0m"
-		exit 0
+			echo -e "\e[32mFinalizada la compresión de imágenes.\e[0m"
+			exit 0
+		else
+			echo -e "\e[31mERROR: La carpeta está vacía, asegúrese de realizar primero los pasos de GENERAR, DESCOMPRIMIR y PROCESAR en ese orden.\e[0m"
+			exit 3
+		fi
 	else
-		echo -e "\e[31mERROR: La carpeta está vacía, asegúrese de realizar primero los pasos de GENERAR, DESCARGAR y PROCESAR en ese orden.\e[0m"
+		echo -e "\e[31mERROR: Deben realizarse primero los pasos de GENERAR, DESCOMPRIMIR y PROCESAR en ese orden.\e[0m"
 		exit 2
-	fi
+	fi	
 else
-	echo -e "\e[31mERROR: La carpeta con las imágenes no existe, realizar primero los pasos de GENERAR, DESCARGAR y PROCESAR en ese orden.\e[0m"
+	echo -e "\e[31mERROR: La carpeta con las imágenes no existe, realizar primero los pasos de GENERAR, DESCOMPRIMIR y PROCESAR en ese orden.\e[0m"
 	exit 1
 fi
 

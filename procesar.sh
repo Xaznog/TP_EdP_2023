@@ -51,12 +51,21 @@ then
 		# Eliminación de archivo temporal
 		rm lista_nombres.txt
 
+		# Creación de archivo que servirá de bandera para indicar que el script fue ejecutado con éxito
+		touch procesado_ok.txt
 		exit 0
 	else
-		echo -e "\e[31mERROR: No hay imagenes con nombres válidos.\e[0m"
-		exit 2
+		echo "No existen imagenes con nombres válidos."
+		echo -e "\e[32mFinalizado el procesado de imágenes.\e[0m"
+
+		# Eliminación de archivo temporal
+		rm lista_nombres.txt
+		
+		# Creación de archivo que servirá de bandera para indicar que el script fue ejecutado con éxito
+		touch procesado_ok.txt
+		exit 0
 	fi
 else
-	echo -e "\e[31mERROR: La carpeta con las imágenes no existe, realizar primero los pasos de GENERAR y DESCARGAR en ese orden.\e[0m"
+	echo -e "\e[31mERROR: La carpeta con las imágenes no existe, realizar primero los pasos de GENERAR y DESCOMPRIMIR en ese orden.\e[0m"
 	exit 1
 fi
