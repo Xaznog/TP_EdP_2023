@@ -1,7 +1,7 @@
 # Trabajo Práctico Final - Entorno de Programación
 
 ## Introducción
-En este repositorio, se encuentran los archivos que componen el trabajo práctico pinal para la materia Entorno de Programación de la Tecnicatura Universitaria en Inteligencia Artificial. Este trabajo fue realizado por:
+En este repositorio, se encuentran los archivos que componen el trabajo práctico final para la materia Entorno de Programación de la Tecnicatura Universitaria en Inteligencia Artificial. Este trabajo fue realizado por:
 
 | Estudiante | Legajo |
 | ----- | --- |
