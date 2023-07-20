@@ -137,7 +137,7 @@ Ejemplo:
 A continuación, para eliminar la imagen de Docker deberá ingresar el siguiente comando en la terminal de Shell:
 
 ```shell
-docker rmi img_tp_edp_tuia
+docker rmi img_tp_edp_tuia:1.0
 ```
 
 Ejemplo:
