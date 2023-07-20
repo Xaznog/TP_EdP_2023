@@ -21,7 +21,7 @@ function elimina_archivo {
 	then
 		if [ -d $1 ]
 		then
-			rm -r $1
+			rm -r -f $1
 		else
 			rm $1
 		fi
