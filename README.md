@@ -1,7 +1,7 @@
 # Trabajo Práctico Final - Entorno de Programación
 
 ## Introducción
-En este repositorio, se encuentran los archivos que componen el Trabajo Práctico Final para la materia Entorno de Programación de la Tecnicatura Universitaria en Inteligencia Artificial. Este trabajo fue realizado por:
+En este repositorio, se encuentran los archivos que componen el trabajo práctico pinal para la materia Entorno de Programación de la Tecnicatura Universitaria en Inteligencia Artificial. Este trabajo fue realizado por:
 
 | Estudiante | Legajo |
 | ----- | --- |
@@ -9,12 +9,12 @@ En este repositorio, se encuentran los archivos que componen el Trabajo Práctic
 |Asad, Gonzalo | A-4595/1 |
 |Castells, Sergio | C-7334/2 |
 
-El Trabajo Práctico consistió en la elaboración de un programa dividido en varios scripts que corren dentro de un contenedor. De ejecutarse el programa en el orden correcto, se obtendrá cómo resultado en la computadora que aloja al contenedor un archivo comprimido con imágenes de personas y tres archivos de texto.
+El trabajo práctico consistió en la elaboración de un programa dividido en varios scripts que corren dentro de un contenedor. De ejecutarse el programa en el orden correcto, se obtendrá como resultado un archivo comprimido con imágenes de personas y tres archivos de texto.
 La nomenclatura de las imágenes corresponde a nombres de personas, de los cuáles sólo se consideran válidos aquellos que comienzan en mayúsculas y continúan en minúsculas. Las imágenes con nombres válidos son procesadas y modificadas en tamaño. Los archivos de texto contienen la siguiente información: lista de nombres válidos, cantidad de nombres válidos que terminan con la letra "a" y lista de nombres de todos los archivos.
 
 ## Requisitos Previos
 Para poder ejecutar el programa correctamente, se requerirá que el usuario
-- Ejecute el Trabajo Práctico en un sistema operativo Linux
+- Cuente con un sistema operativo Linux
 - Posea conocimientos básicos del uso de Shell en Linux
 - Tenga instalado Docker en la PC donde se correrá el programa (si no lo tiene instalado, puede seguir el instructivo en el siguiente enlace: https://docs.docker.com/desktop/install/linux-install/)
 
@@ -47,7 +47,7 @@ Ejemplo:
 ![imagen](https://github.com/Xaznog/TP_EdP_2023/assets/101712284/66c69dc7-8b86-43b9-a7de-a4ad7cb1c2fe)
 
 ### Paso #4:
-Finalmente, deberá ejecutar el archivo _startdocker.sh_, lo que dará inicio a la creación de la imagen de Docker, al contenedor y a la ejecución del programa del Trabajo Práctico:
+Finalmente, deberá ejecutar el archivo _startdocker.sh_, lo que dará inicio a la creación de la imagen de Docker, al contenedor y a la ejecución del programa:
 
 ```shell
 ./startdocker.sh
@@ -57,7 +57,7 @@ Ejemplo:
 
 ![imagen](https://github.com/Xaznog/TP_EdP_2023/assets/101712284/6b9b20d1-bba4-4a12-8fbf-b3d719a682df)
 
-Si todos los pasos fueron ejecutados satisfactoriamente, se deberá ver en la terminal la creación de la imágen y a continuación un mensaje de bienvenida al Trabajo Práctico de Entorno de Programación, dando inicio al programa:
+Si todos los pasos fueron ejecutados satisfactoriamente, se deberá ver en la terminal la creación de la imágen y a continuación un mensaje de bienvenida al trabajo práctico de Entorno de Programación, dando inicio al programa:
 
 ![imagen](https://github.com/Xaznog/TP_EdP_2023/assets/101712284/1705ea6a-d86e-4857-a040-5c32dbb5c7c0)
 
@@ -73,8 +73,8 @@ Si bien el usuario puede elegir cualquier opción en cualquier orden, para una c
 La correcta ejecución arrojará como resultado el archivo comprimido antes mencionado que se alojará en la PC donde se ejecuta el programa.
 
 ### Paso #1: Generar
-Esta opción busca y genera una cantidad de imágenes definida por el usuario haciendo uso de un servicio en internet, las descarga y las guarda dentro de un archivo comprimido junto con su checksum dentro del contenedor.
-Para ejecutar esta opción, teniendo el menú en pantalla, el usuario deberá ingresar _1_ con el teclado y a continuación presionar la tecla _Enter_. Se le pedirá que ingrese cuántas imágenes desea generar, ingresar el número con el teclado seguido de presionar el botón _Enter_:
+Esta opción genera una cantidad de imágenes definida por el usuario haciendo uso de un servicio en internet, las descarga y las guarda dentro de un archivo comprimido, junto con su checksum, dentro del contenedor.
+Para ejecutar esta opción, teniendo el menú en pantalla, el usuario deberá ingresar _1_ con el teclado y a continuación presionar la tecla _Enter_. Se le pedirá que ingrese cuántas imágenes desea generar, ingresar el número con el teclado y presionar _Enter_:
 
 ![imagen](https://github.com/Xaznog/TP_EdP_2023/assets/101712284/a31c040b-7666-48df-be55-8b970bfd5abb)
 
