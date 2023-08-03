@@ -82,12 +82,12 @@ then
 							for REINTENTOS_DESCARGA in {1..3}
 							do
 								echo "Generando imagen $i de $1, intento $REINTENTOS_DESCARGA de 3."
-								wget -q -O "$NOMBRE_IMAGEN" $URL_IMAGENES
+								wget --read-timeout=5 -q -O "$NOMBRE_IMAGEN" $URL_IMAGENES
 								# -q hace que no salgan mensajes en la terminal a menos que ocurra algún error
 								# -O sirve para especificar el nombre de archivo de salida
-								sleep 2
 								if [ $? -eq 0 ]
 								then
+									sleep 2
 									break 2
 								fi
 							done
